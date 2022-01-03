@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Refraction through a glass slab</title> 
+</head>
+<style>
+strong {
+font-size:10px;
+    
+    
+}
+.c {font-family:monospace;
+    
+}
+
+    #w{background-color:red;}
+    #go{float:right;
+        padding:30px;
+    }
+    #table{background-color:gray;}
+</style>
+ <body>
+ <center>
+ <h1>Refraction through a glass slab</h1>
+<br>
+<h3></h3>
+<p>Let's look at a refraction through a rectangular glass slab.</p>
+<canvas id="mycanvas4"></canvas>
+<p>The light ray changed direction and slows down in the glass, but when it goes out of the glass, it goes back to its original direction and speed.</p>
+<p>The angle "θ3" is called "angle of emergence".</p>
+<p>And as you can see: θ1 = θ3.</p>
+<p>So we know that the angle of emergence is equal to the angle of incidence.</p>
+<br>
+
+<br><br>
+<h3>Lateral shift</h3>
+<p>Compare to the incdent ray, the emergent ray is shifted to the side, and it is parallels to the incident ray. We call this "<b>lateral shift</b>".</p>
+<canvas id="mycanvas5"></canvas>
+<p>You can see this more clearly by the imaginary blue line.</p>
+    </center>
+    
+   <a href="index.html" id="go">go back to homepage</a> 
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+
+ /*var sketchProc2 = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+        noStroke();
+    
+    
+    //leaf
+    fill(50, 143, 49);
+    ellipse(210,100,150,150)
+    ellipse(210,300,150,150)
+    
+    //tree trunk (shade)
+    fill(135, 65, 65);
+    rect(200,200,20,100);
+    
+    //water
+    fill(0,0,255,30)
+    rect(0,200,400,400);
+    
+    //tree trunk
+   fill(135, 65, 65);
+   rect(200,100,20,100);
+    
+    }};
+var sketchProc3=function(processingInstance){
+     
+    
+    with(processingInstance){size(450,400); frameRate(30);
+    
+    
+     var t=0;
+    var a=0;
+    var a2=0;
+    var m=PI/180;
+    var m2=180/PI;
+    //var an=0;
+    var n=1.33;
+    var me=["vacuum","water"];
+    var water=1.33;
+   var an= asin(sin(radians(45))/n);
+   
+    var ve=1/n;
+    
+    draw=function(){
+        
+        
+        
+        
+        background(255);
+        fill(0);
+        if(mouseY<200){
+        
+        text(me[0],320,10);
+        text("v1: 300000000",320,30);
+        text("n1: "+1,320,50);}
+        
+        if(mouseY>200){
+        text(me[1],10,200);
+        text("v2: "+300000000/n,10,220);
+        text("n2: "+n,10,240);}
+        
+       
+        
+        //water
+        stroke(0,0,255,30);
+    fill(0,0,255,30);
+    rect(0,190,500,400);
+    
+    //red line
+    stroke(255,0,0);
+    line(0,0,a,a);
+    
+    pushMatrix();
+     if(t>190){
+         if(150<mouseX&&mouseX<200&&150<mouseY&&mouseY<200){
+             fill(0);
+        text("45 degrees",200,150);}
+        noFill();
+    stroke(0);
+    arc(190,190,100,100,radians(225),radians(270));
+    fill(0);
+   text("θ1",170,160);
+    
+        translate(190,190);
+        rotate(radians(45)-an);
+ 
+    //red line
+    stroke(255,0,0);
+    line(0,0,a2,a2);
+    a=190;
+    a2+=ve;
+    
+     
+     }
+    popMatrix();
+    if(t>230){stroke(9); 
+     if(200<mouseX&&mouseX<250&&200<mouseY&&mouseY<250){
+            fill(0);
+        text(degrees(an)+" degrees",240,230);}
+    noFill();
+        arc(190,190,100,100,radians(90)-an,radians(90));
+        text("θ2",198,230);
+    }
+    fill(232,232,232);
+    stroke(100,100,100);
+               for(var i=0;i<100;i++){
+               rect(189,0+i*20,1,10);} 
+               fill(100,100,100);
+               text("Normal",210,20);      
+               
+ a++;
+ 
+    
+    t++;
+    };
+    
+    
+    
+    }};*/
+var sketchProc4 = function(processingInstance) {
+    with (processingInstance) {size(450,542); frameRate(30);
+    
+    var di=70;
+var di2=30;
+var di3=-100;
+var di4=45;
+    
+     var t=0;
+    var a=0;
+    var a2=0;
+   var a3=0;
+   
+    var n=[1.00029,1.33,1.52,1.53,2.42];
+    var me=["air","water","typical glass","cooking oil","diamond"];
+    
+   
+    var ii=0;
+    var j=0;
+    draw=function(){
+        /*mouseClicked=function(){if(ii>=me.length-1){ii=0; t=0; a=0; a2=0;}else{ii++; t=0; a=0; a2=0;}}*/
+        ii=2
+        
+    var an= asin(sin(radians(45))/n[ii]);
+    var an2=asin(sin(45)/n[ii])
+    var ve=1/n[ii];
+    
+    var ve2=(sqrt(2)*ve)*cos(an)
+    
+    
+        background(255);
+    if(ii===1){   
+    //water
+    stroke(0,0,255,30);
+    fill(0,0,255,30);
+    rect(0,190,500,400);}
+    if(ii===2){
+        stroke(0);
+        fill(232,232,232,50);
+        rect(0,190,500,200)
+    }
+    if(ii===3){fill(217, 207, 74); rect(0,190,500,200);}
+if(ii===4){
+fill(0, 255, 225);
+beginShape(TRIANGLE_STRIP);
+//fill(0, 225, 255);
+vertex(230+di3, 175+di+di4);
+vertex(240+di2+di3, 120+di);
+vertex(250+2*di2+di3, 175+di+di4);
+vertex(260+3*di2+di3, 120+di);
+vertex(270+4*di2+di3, 175+di+di4);
+vertex(280+5*di2+di3, 120+di);
+vertex(290+6*di2+di3,175+di+di4);
+endShape();
+triangle(230+di3,175+di+di4,290+di2*6+di3,175+di+di4,260+di2*3+di3,250+di+di4*2);
+
+line(250+2*di2+di3,175+di+di4,260+di2*3+di3,250+di+di4*2);
+line(270+4*di2+di3,175+di+di4,260+di2*3+di3,250+di+di4*2);
+}
+        
+        fill(0);
+        if(mouseY<200){
+        
+        text("vacuum",320,10);
+        text("v1: 300000000"+" m/s",320,30);
+        text("n1: "+1,320,50);}
+        
+        if(mouseY>200&&mouseY<400){
+        text(me[ii],10,200);
+        text("v2: "+300000000/n[ii]+" m/s",10,220);
+        text("n2: "+n[ii],10,240);}
+    
+    //red line
+    stroke(255,0,0);
+    line(0,0,a,a);
+    
+    pushMatrix();
+    if(t>188){fill(100,100,100);
+               text("Normal",210,20);
+               fill(232,232,232);
+    stroke(100,100,100);
+    for(var i=0;i<13;i++){rect(189,0+i*20,1,10);}}
+     if(t>190){
+          
+    
+         if(150<mouseX&&mouseX<200&&150<mouseY&&mouseY<200){
+             fill(0);
+        text("45 degrees",200,150);}
+        noFill();
+    stroke(0);
+    arc(190,190,100,100,radians(225),radians(270));
+    fill(0);
+   text("θ1",170,160);
+    
+        translate(190,190);
+        rotate(radians(45)-an);
+ 
+    //red line
+    stroke(255,0,0);
+    line(0,0,a2,a2);
+    a=190;
+    a2+=ve;
+    
+     
+     }
+    popMatrix();
+    if(t>230){stroke(0); 
+     if(200<mouseX&&mouseX<250&&200<mouseY&&mouseY<250){
+            fill(0);
+        text(degrees(an)+" degrees",240,230);}
+    noFill();
+        arc(190,190,100,100,radians(90)-an,radians(90));
+        text("θ2",198,230);
+    }
+    
+               
+              
+if(t>(200/ve2)+188){fill(100,100,100);
+               text("Normal",210,20);
+               fill(232,232,232);
+    stroke(100,100,100);
+    for(var i=0;i<7;i++){rect(190+200*tan(an),350+i*20,1,10);}}
+pushMatrix();
+    if(t>(200/ve2)+190){stroke(0);
+    //arc(190,190,100,100,radians(225),radians(270));
+    fill(0);
+   text("θ1",170,160);
+    
+        translate(190+200*tan(an),390);
+        //rotate(-(radians(45)-an));
+ 
+    //red line
+    stroke(255,0,0);
+    line(0,0,a3,a3);
+    
+    a3+=1;
+    
+    a2=ve*(200/ve2);
+    //a2=ve*(200/(cos(an))/ve)
+    
+    }
+    popMatrix();
+    if(t>200/ve2+190+100){
+        stroke(0)
+        if(190+200*tan(an)<mouseX&&mouseX<190+200*tan(an)+100&&390<mouseY&&mouseY<390+100){
+            fill(0);
+        text(45+" degrees",363,402);}
+    noFill();
+       arc(190+200*tan(an),390,100,100,0,PI/4)
+        text("θ3",315,402);          
+        
+    }
+    
+     
+     
+ a++;
+ 
+    
+    t++;
+    
+    };
+    }};
+    var sketchProc5 = function(processingInstance) {
+    with (processingInstance) {size(450,542); frameRate(30);
+    
+    var di=70;
+var di2=30;
+var di3=-100;
+var di4=45;
+    
+     var t=0;
+    var a=0;
+    var a2=0;
+   var a3=0;
+   
+    var n=[1.00029,1.33,1.52,1.53,2.42];
+    var me=["air","water","typical glass","cooking oil","diamond"];
+    
+   
+    var ii=0;
+    var j=0;
+    draw=function(){
+        /*mouseClicked=function(){if(ii>=me.length-1){ii=0; t=0; a=0; a2=0;}else{ii++; t=0; a=0; a2=0;}}*/
+//mouseClicked=function(){t=0; ii=2;}
+        ii=2
+        
+    var an= asin(sin(radians(45))/n[ii]);
+    var an2=asin(sin(45)/n[ii])
+    var ve=1/n[ii];
+    
+    var ve2=(sqrt(2)*ve)*cos(an)
+    
+    
+        background(255);
+    if(ii===1){   
+    //water
+    stroke(0,0,255,30);
+    fill(0,0,255,30);
+    rect(0,190,500,400);}
+    if(ii===2){
+        stroke(0);
+        fill(232,232,232,50);
+        rect(0,190,500,200)
+    }
+    if(ii===3){fill(217, 207, 74); rect(0,190,500,200);}
+if(ii===4){
+fill(0, 255, 225);
+beginShape(TRIANGLE_STRIP);
+//fill(0, 225, 255);
+vertex(230+di3, 175+di+di4);
+vertex(240+di2+di3, 120+di);
+vertex(250+2*di2+di3, 175+di+di4);
+vertex(260+3*di2+di3, 120+di);
+vertex(270+4*di2+di3, 175+di+di4);
+vertex(280+5*di2+di3, 120+di);
+vertex(290+6*di2+di3,175+di+di4);
+endShape();
+triangle(230+di3,175+di+di4,290+di2*6+di3,175+di+di4,260+di2*3+di3,250+di+di4*2);
+
+line(250+2*di2+di3,175+di+di4,260+di2*3+di3,250+di+di4*2);
+line(270+4*di2+di3,175+di+di4,260+di2*3+di3,250+di+di4*2);
+}
+        
+        fill(0);
+        if(mouseY<200){
+        
+        text("vacuum",320,10);
+        text("v1: 300000000"+" m/s",320,30);
+        text("n1: "+1,320,50);}
+        
+        if(mouseY>200&&mouseY<400){
+        text(me[ii],10,200);
+        text("v2: "+300000000/n[ii]+" m/s",10,220);
+        text("n2: "+n[ii],10,240);}
+    
+    //red line
+    stroke(255,0,0);
+    line(0,0,a,a);
+    
+    pushMatrix();
+    if(t>188){fill(100,100,100);
+               text("Normal",210,20);
+               fill(232,232,232);
+    stroke(100,100,100);
+    for(var i=0;i<13;i++){rect(189,0+i*20,1,10);}}
+     if(t>190){
+          
+    
+         if(150<mouseX&&mouseX<200&&150<mouseY&&mouseY<200){
+             fill(0);
+        text("45 degrees",200,150);}
+        noFill();
+    stroke(0);
+    arc(190,190,100,100,radians(225),radians(270));
+    fill(0);
+   text("θ1",170,160);
+    
+        translate(190,190);
+        rotate(radians(45)-an);
+ 
+    //red line
+    stroke(255,0,0);
+    line(0,0,a2,a2);
+    a=190;
+    a2+=ve;
+    
+     
+     }
+    popMatrix();
+    if(t>230){stroke(0); 
+     if(200<mouseX&&mouseX<250&&200<mouseY&&mouseY<250){
+            fill(0);
+        text(degrees(an)+" degrees",240,230);}
+    noFill();
+        arc(190,190,100,100,radians(90)-an,radians(90));
+        text("θ2",198,230);
+    }
+    
+               
+              
+if(t>(200/ve2)+188){fill(100,100,100);
+               text("Normal",210,20);
+               fill(232,232,232);
+    stroke(100,100,100);
+    for(var i=0;i<7;i++){rect(190+200*tan(an),350+i*20,1,10);}}
+pushMatrix();
+    if(t>(200/ve2)+190){stroke(0);
+    //arc(190,190,100,100,radians(225),radians(270));
+    fill(0);
+   text("θ1",170,160);
+    
+        translate(190+200*tan(an),390);
+        //rotate(-(radians(45)-an));
+ 
+    //red line
+    stroke(255,0,0);
+    line(0,0,a3,a3);
+    
+    a3+=1;
+    
+    a2=ve*(200/ve2);
+    //a2=ve*(200/(cos(an))/ve)
+    
+    }
+    popMatrix();
+    if(t>200/ve2+190+100){
+        stroke(0)
+    if(190+200*tan(an)<mouseX&&mouseX<190+200*tan(an)+100&&390<mouseY&&mouseY<390+100){
+            fill(0);
+        text(45+" degrees",363,402);}
+    noFill();
+       arc(190+200*tan(an),390,100,100,0,PI/4)
+        text("θ3",315,402);          
+        
+    }
+   if(t>200/ve2+190+120){
+       stroke(0,0,255)
+       line(190+200*tan(an)-800,390-800,190+200*tan(an),390)}
+   
+     
+     
+ a++;
+ 
+    
+    t++;
+    
+    };
+    }}; 
+    
+    
+    
+   var canvas4=document.getElementById("mycanvas4");
+ var canvas5=document.getElementById("mycanvas5");
+    
+    
+     var processingInstance4=new Processing(canvas4,sketchProc4);
+     var processingInstance5=new Processing(canvas5,sketchProc5);
+     
+ </script>
+
+</html>
+
+
+

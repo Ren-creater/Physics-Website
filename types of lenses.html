@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Types of lenses</title>
+</head>
+<style>
+    #go {
+        float: right;
+        padding: 30px;
+    }
+</style>
+
+<body>
+    <center>
+        <h1>Types of lenses</h1>
+        <br><br>
+        <h3>Convex lens</h3>
+        <canvas id="mycanvas2"></canvas>
+        <p>A convex lens could converge light.</p>
+        <h3>Concave lens</h3>
+        <canvas id="mycanvas3"></canvas>
+        <p>A concave lens could diverge light. The imaginary red rays show where the light rays seemed to come from after being diverged.</p>
+        <br>
+        <h3></h3>
+        <p>And, there's one more thing to remember: both sides of the convex and concave lenses are symmetric.</p>
+
+    </center>
+    <a href="index.html" id="go">go back to homepage</a>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+
+<script>
+    var sketchProc2 = function(processingInstance) {
+        with(processingInstance) {
+            size(400, 400);
+            frameRate(30)
+
+            var i = 0;
+            var a = 0;
+            var b = 0;
+            var c = 400;
+            var d = 0;
+            draw = function() {
+                background(255)
+                strokeWeight(1)
+                stroke(0)
+                fill(0, 0, 255)
+                ellipse(200, 200, 20, 200)
+                if (i === 0) {
+                    //straight l    
+
+                    strokeWeight(2)
+                    stroke(251, 255, 40);
+                    line(-25, 150, a, 150)
+                    line(-25, 250, a, 250)
+                    if (a < 190) {
+                        a += 2;
+                    }
+
+                    //gathering l
+                    line(a, 150, a + b, 150 + b * 5 / 16)
+                    line(a, 250, a + b, 250 - b * 5 / 16)
+                    if (a === 190) {
+                        if (b < 160) {
+                            b += 2;
+                        }
+                    }
+                }
+                if (i === 1) {
+                    //straight l    
+                    strokeWeight(2)
+                    stroke(251, 255, 40);
+                    line(425, 150, c, 150)
+                    line(425, 250, c, 250)
+                    if (c > 210) {
+                        c -= 2;
+                    }
+
+                    //gathering l
+                    line(c, 150, c + d, 150 - d * 5 / 16)
+                    line(c, 250, c + d, 250 + d * 5 / 16)
+                    if (c === 210) {
+                        if (d + c > 50) {
+                            d -= 2;
+                        }
+                    }
+                }
+
+                strokeWeight(1)
+                stroke(0)
+                fill(0)
+                ellipse(350, 200, 9, 9)
+                fill(0)
+                text("F", 350, 220)
+
+
+
+                ellipse(50, 200, 9, 9)
+                text("F", 50, 220)
+
+                text("Click to see another focus", 150, 350)
+                mouseClicked = function() {
+                    a = 0;
+                    b = 0;
+                    d = 0;
+                    c = 400;
+                    if (i === 0) {
+                        i++;
+                    } else {
+                        i--;
+                    }
+
+                }
+            }
+
+
+
+        }
+    };
+    var sketchProc3 = function(processingInstance) {
+        with(processingInstance) {
+            size(400, 400);
+            frameRate(30);
+            background(255)
+            var i = 0;
+            var a = 0;
+            var b = 0;
+            var c = 0;
+            var d = 0;
+            draw = function() {
+                background(255, 255, 255)
+                noStroke();
+                fill(0, 0, 255)
+                rect(185, 100, 30, 200)
+                fill(255)
+                ellipse(185, 200, 20, 200)
+                ellipse(215, 200, 20, 200)
+
+                if (i === 0) {
+                    //straight l
+                    strokeWeight(2)
+                    stroke(251, 255, 40);
+                    line(0, 150, a, 150)
+                    line(0, 250, a, 250)
+                    if (a < 192) {
+                        a += 2;
+                    }
+
+                    //diverging l
+                    strokeWeight(2)
+                    stroke(251, 255, 40);
+                    line(192, 150, 192 + b, 150 - b * 50 / 92)
+                    line(192, 250, 192 + b, 250 + b * 50 / 92)
+                    if (a === 192) {
+                        if (b < 300) {
+                            b += 2
+                        }
+                    }
+
+                    if (b > 100) {
+                        //gathering l (i)
+                        stroke(255, 0, 0)
+                        strokeWeight(1)
+                        line(192, 150, 100, 200)
+                        line(192, 250, 100, 200)
+                    }
+                }
+                if (i === 1) {
+                    //straight l
+                    strokeWeight(2)
+                    stroke(251, 255, 40);
+                    line(400, 150, c + 400, 150)
+                    line(400, 250, c + 400, 250)
+                    if (c + 400 > 208) {
+                        c -= 2;
+                    }
+
+                    //diverging l
+                    strokeWeight(2)
+                    stroke(251, 255, 40);
+                    line(c + 400, 150, c + 400 + d, 150 + d * 50 / 92)
+                    line(c + 400, 250, c + 400 + d, 250 - d * 50 / 92)
+                    if (c + 400 === 208) {
+                        if (d + 192 + 20 < 300) {
+                            d -= 2
+                        }
+                    }
+
+                    if (d + 192 + 20 < 100) {
+                        //gathering l (i)
+                        stroke(255, 0, 0)
+                        strokeWeight(1)
+                        line(c + 400, 150, 300, 200)
+                        line(c + 400, 250, 300, 200)
+                    }
+                }
+
+                stroke(0)
+                fill(0)
+                ellipse(100, 200, 8, 8)
+                text("F", 100, 220)
+
+                ellipse(300, 200, 8, 8)
+                text("F", 300, 220)
+
+                mouseClicked = function() {
+                    a = 0;
+                    b = 0;
+                    c = 0;
+                    d = 0;
+                    if (i === 0) {
+                        i++;
+                    } else {
+                        i--;
+                    }
+                }
+                text("Click to see another focus", 150, 350)
+            }
+        }
+    };
+
+
+
+    var canvas2 = document.getElementById("mycanvas2");
+    var canvas3 = document.getElementById("mycanvas3");
+
+    // var processingInstance = new Processing(canvas, sketchProc); 
+    var processingInstance2 = new Processing(canvas2, sketchProc2);
+    var processingInstance3 = new Processing(canvas3, sketchProc3);
+</script>
+
+</html>

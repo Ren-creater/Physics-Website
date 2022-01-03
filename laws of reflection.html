@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Laws of reflection</title> 
+</head>
+<style>#go{float:right;
+        padding:30px;
+    }</style>
+ <body>
+ <center>
+ <h1>Laws of reflection</h1>
+<br>
+
+<canvas id="mycanvas"></canvas>
+<p class="note">Hover over the two angles of the reflection, one of the red angle on the right is called "the angle of incidence", and the light ray on this side is called "the incident ray". And on another side, the blue angle is called "the angle of reflection", and the light on this side is called "the reflected ray". As we can see, the light ray comes from the incident side of the normal, the imaginary line which separates two sides.</p>
+<p>Laws of reflection are:  <br><br>
+    1.The incident ray, the reflected ray and the normal to the reflection surface at the point of the incidence lie in the same plane.<br><br>
+    2.The angle of incidence is equal to the angle of reflection.<br><br>
+    3.The reflected ray and the incident ray are on the opposite sides of the normal.
+</p><br>
+<br> <p>And one more thing to remember: reflections are reversible.</p>
+    </center>
+    <a href="index.html" id="go">go back to homepage</a>
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+var sketchProc=function(processingInstance){
+     with(processingInstance){
+         size(400,300);
+         frameRate(30);
+         
+       
+         var t=0;
+         var r=0;
+        var a=0;
+        var m=7;
+       
+       
+         draw=function(){
+              stroke(255,0,0);
+              fill(242,242,242)
+              rect(0,200,400,200)
+              stroke(203)
+              fill(203)
+              rect(180,0,100,20)
+              
+               //line(0,200-m,400,200-m)
+           if(t>400){    
+         //in
+        fill(255)
+        
+if((150<=mouseX&&mouseX<=190)&&(150<=mouseY&&mouseY<=200)){
+    fill(255,0,0); text("Angle of incidence",100,220);
+}
+            arc(200,200-m,100,100,-6*PI/8,-4*PI/8);
+            
+            //re
+            fill(255);
+    if((200<=mouseX&&mouseX<=250)&&(150<=mouseY&&mouseY<=200)){
+        fill(0,0,255); text("Angle of reflection",250,220);}
+            arc(200,200-m,100,100,-4*PI/8,-2*PI/8);
+               
+               fill()
+               for(i=0;i<200;i++){
+               rect(199,0+i*20,2,10)}
+               
+               stroke(232,232,232)
+              //line(r,a)
+           
+           text("Normal",199,20)}
+            
+         fill(0,0,0);
+         
+         stroke(3,20)
+         
+         ellipse(r,a,7,7)
+         
+            
+        if(t<200){a+=2; }
+           if(t>=200){ a-=2;}
+          
+            r+=2;
+            t+=2;
+            
+            
+        } 
+        
+        
+        
+           
+     }};
+
+     var canvas = document.getElementById("mycanvas"); 
+    
+   var processingInstance = new Processing(canvas, sketchProc); 
+  
+ </script>
+
+</html>

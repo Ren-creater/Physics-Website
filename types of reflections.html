@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Types of reflection</title> 
+</head>
+<style>
+    #w{background-color:red;}
+    #go{float:right;
+        padding:30px;
+    }
+</style>
+ <body>
+ <center>
+ <h1>Types of reflections</h1>
+<br>
+<h3>Specular reflection</h3>
+<p>Here's an example for the specular reflection</p>
+    
+<canvas id="mycanvas2"></canvas>
+<br><br><br>
+<p>Here's what happens to light in a specular reflection</p>    
+    
+<canvas id="mycanvas3"></canvas>
+<p>As you can see, all the light rays go on the same direction after they reflected on the surface of water, that's why you can see the image of the tree clearly in the water, it's because the surface of the water is flat.</p>
+<p></p><br><br><br><br><br><br>
+<h3>Diffuse reflection</h3>
+<p>Another type of reflection is the diffuse reflection. Look at the picture below, why we can't see the image of the tree on the ground?</p>
+<canvas id="mycanvas4"></canvas>
+<br><br><br>
+<p>Let's have a look at what happens to the light rays.</p>
+<canvas id="mycanvas5"></canvas>
+<p>The surface of the ground is not flat, even though the light rays all come along in the same direction, but after reflected on the ground, their directions are no longer the same. That's why we cannot see the image of tree on the ground, and this is called diffuse reflection.</p>
+<div id ="w">
+<br>
+    Warning: Both specular and diffuse reflections follow the law of reflection --INCIDENT ANGLE = REFLECTED ANGLE.
+</div>
+    </center>
+    
+   <a href="index.html" id="go">go back to homepage</a> 
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+
+var sketchProc2 = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+        noStroke();
+    
+    
+    //leaf
+    fill(50, 143, 49);
+    ellipse(210,100,150,150)
+    ellipse(210,300,150,150)
+    
+    //tree trunk (shade)
+    fill(135, 65, 65);
+    rect(200,200,20,100);
+    
+    //water
+    fill(0,0,255,30)
+    rect(0,200,400,400);
+    
+    //tree trunk
+   fill(135, 65, 65);
+   rect(200,100,20,100);
+    
+    }};
+var sketchProc3=function(processingInstance){
+    with(processingInstance){size(500,300); frameRate(30);
+    var t=0;
+    var a=0;
+    var b=0;
+    var c=0;
+    draw=function(){
+        
+        background(255)
+        //water
+    fill(0,0,255,30)
+    rect(0,190,500,400);
+    
+    //red line
+    stroke(255,0,0)
+    line(0,0,a,a)
+    
+    //blue line
+    stroke(0,0,255)
+    line(100,0,a+100,a)
+    if(a<190){
+    a++;}else{a=190;}
+    
+    if(t>190){
+        //red line
+    stroke(255,0,0)
+    line(a,a,a+b,c+a)
+    
+    //blue line
+    stroke(0,0,255)
+    line(a+100,a,a+100+b,c+a)
+    b++;
+    c--;
+    } 
+    t++;
+    };
+    
+    
+    }};
+var sketchProc4 = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+        noStroke();
+    
+    
+    //leaf
+    fill(50, 143, 49);
+    ellipse(210,100,150,150)
+    ellipse(210,300,150,150)
+    
+    //tree trunk (shade)
+    fill(135, 65, 65);
+    rect(200,200,20,100);
+    
+    //water
+    fill(232,232,232)
+    rect(0,200,400,400);
+    
+    //tree trunk
+   fill(135, 65, 65);
+   rect(200,100,20,100);
+    
+    }};
+var sketchProc5 = function(processingInstance) {
+     with (processingInstance) {size(500,300); frameRate(30)
+         
+var a=0;
+var b=0;
+var c=0;
+var cx=0;
+var d=0;
+var dx=0;
+var e=0;
+var ex=0;
+var ey=0;
+
+var ta=0;
+var tb=0;
+var te=0;
+draw= function() {
+    background(232);
+//ground
+stroke(0);
+         line(0,190,100,180);
+         line(100,180,120,160);
+         line(120,160,130,162);
+         line(130,162,150,170);
+         line(150,170,170,180);
+        line(170,180,180,184);
+        line(180,184,190,184);
+    line(190,184,200,190);
+    line(200,190,250,190);
+    line(250,190,270,200);
+    line(270,200,290,200);
+    line(290,200,310,190);
+    line(310,190,380,190);
+    line(380,190,400,180);
+    line(400,180,420,170);
+    line(420,170,440,180);
+    line(440,180,480,170);
+    line(480,170,500,170);
+    //red line
+    stroke(255, 0, 0);
+   line(-20,0,a-20,a);
+   line(a-20,a,a-20+cx,a);
+    //line(-35,0,a,a*172/192+35*172/192);
+    if(a<=166){a++;}
+    
+    if(ta>=172){
+   
+    if(cx<=500){cx++;}}
+    //blue line
+    stroke(0,0,255);
+    
+    line(80,0,b+80,b);
+    
+    if(b<=200){b++;}
+    if(tb>=200){
+    
+    line(b+80,b,b+80+dx,b-dx);
+    
+    if(d<=440){d++;} if(dx<=262){dx++;}}
+    
+    stroke(149, 255, 0);
+    line(-50,0,e-50,e);
+    
+    if(e<=164){e++;}
+    if(te>=164){
+        line(e-50,e,e-50-ex,e-ex/1.2);
+    if(ex<=500){ex++;}}
+    ta++; tb++;
+    ey+=1/3;
+    te++;
+};}
+}; 
+    
+    var canvas2 = document.getElementById("mycanvas2");
+    var canvas3=document.getElementById("mycanvas3");
+   var canvas4=document.getElementById("mycanvas4");
+  var canvas5=document.getElementById("mycanvas5");
+    var processingInstance2 = new Processing(canvas2, sketchProc2); 
+    var processingInstance3=new Processing(canvas3,sketchProc3);
+     var processingInstance4=new Processing(canvas4,sketchProc4);
+      var processingInstance5=new Processing(canvas5,sketchProc5);
+     
+ </script>
+
+</html>

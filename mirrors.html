@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Mirrors</title> 
+</head>
+<style>#go{float:right;
+        padding:30px;
+    }</style>
+ <body>
+ <center>
+ <h1>Mirrors</h1>
+ <br>
+<h3>Flat mirror</h3>
+<p>For this one, we don't have so much to talk about.</p>
+<br><br>
+<h3>Concave mirror</h3>
+<canvas id="mycanvas2"></canvas>
+<p>Because of its shape, a concave mirror is able to converge the parallel light rays to a single point, which is called its focus, represented by "F".</p>
+<br>
+<h3>Applications of concave mirrors</h3>
+<p>1.Telescope: Concave mirrors are used on telescopes to collect and focus the light from the distant celestial bodies to observe them.<br>
+2.Flashlight: To produce a parallel light beam. In this use of concave mirror, our objection is not to focus light, but make, the light emitted by flashlight parallel to each other, so that they can go on the same direction, remember: the reflection is reversible.
+</p>
+<br><br><br>
+<h3>Convex mirror</h3>
+<canvas id="mycanvas3"></canvas>
+<p>A convex mirror is able to diverge the parallel light rays to many directions. The focus of a convex mirror is behind the mirror, the dot where the imaginary red light rays gather. In fact, the light rays are diverged by the concave mirror, but it looks like that they are from the back of the mirror. </p>
+<br>
+<h3>Applications of convex mirrors</h3>
+<p>1.Side-view mirrors in cars: To give the drivers a wider view of the back of the car. This application of convex mirror also use the reversibility of reflection, if convex mirrors could diverge the parallel light rays to may directions, it could also make the light rays from many directions parallel to each other. </p>
+
+    </center>
+    <a href="index.html" id="go">go back to homepage</a>
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+/*var sketchProc=function(processingInstance){with(processingInstance){size(400,400);
+frameRate(30);
+
+//parabolic mirror
+noFill();
+beginShape();
+curveVertex(450,-50);
+curveVertex(200,  80);
+curveVertex(90,200);
+curveVertex(200, 320);
+
+
+curveVertex(450,450);
+
+endShape();
+    
+    fill(0)
+    ellipse(220,200,5,5)
+    text("F",250,200)
+    
+    
+}
+ };*/
+var sketchProc2=function(processingInstance){
+     with(processingInstance){size(400,200); frameRate(30);
+     
+    
+     var t=0;
+     var l=0;
+     var m=11;
+     var mx=400;
+     var k=171;
+     var k=-100
+     var f=9
+     var g=8
+     draw=function(){
+        background(232);
+        
+       
+        //backside of concave 
+          fill(104,90,90)
+          stroke(102, 71, 71)
+          arc(350-50+2+m,200+k,600,600,2.9,3.4)
+    //concave
+    
+          strokeWeight(9)
+          fill(232)
+          stroke(0,0,255)
+          arc(358-50+3+m,200+k,600,600,2.9,3.4)
+          
+          
+           //light rays
+           strokeWeight(5)
+        stroke(251, 255, 40,100);
+        line(800,200+k-70,800+l+f,200+k-70)
+        line(800,200+k+70,800+l+f,200+k+70)
+        line(800,200+k-40,800+l+f-g,200+k-40)
+        line(800,200+k+40,800+l+f-g,200+k+40)
+        if(l>=-768){l-=7;}
+        if(t>768){
+        line(800+l+f,200+k-70,358-50+3+m-150,200+k)
+        line(800+l+f,200+k+70,358-50+3+m-150,200+k)
+        line(800+l+f-g,200+k-40,358-50+3+m-150,200+k)
+        line(800+l+f-g,200+k+40,358-50+3+m-150,200+k)}
+        t+=7;
+          //black line
+          strokeWeight(1)
+          stroke(0)
+          //line(13,200+k,900,200+k)
+          //green dot
+          //fill(111, 255, 0);
+          //ellipse(358-50+3+m-300,200+k,10,10)
+          //text("P",358-50+3+m-300,270+k)
+          //black dot
+         fill(0)
+         ellipse(358-50+3+m-150,200+k,10,10)
+         text("F",358-50+3+m-150,270+k)
+         //white dot
+         fill(0);
+         //ellipse(358-50+3+m,200+k,10,10)
+         //text("C",358-50+3+m,270+k) 
+         
+         }
+         
+     }};
+var sketchProc3=function(processingInstance){
+     with(processingInstance){size(400,300); frameRate(30);
+     
+    
+     var t=0;
+     var l=0;
+     var m=11;
+     var mx=400;
+     //var k=171;
+     var k=-50
+     var m2=90
+     var e=0;
+     var f=-15;
+     var g=3
+     draw=function(){
+        background(232);
+       
+         
+        //convex
+          strokeWeight(9)
+          fill(232)
+          stroke(0,0,255)
+          arc(358-50+3+m-390,200+k,600,600,-0.25,0.25)
+           //backside of convex
+           strokeWeight(5)
+          fill(232);
+          stroke(102, 71, 71)
+          arc(350-50+2+m-388,200+k,600,600,-0.25,0.25)
+           //light rays
+           strokeWeight(5)
+        stroke(251, 255, 40,100);
+        line(800,200+k-70,800+l-f,200+k-70)
+        line(800,200+k+70,800+l-f,200+k+70)
+        line(800,200+k-40,800+l-f+g,200+k-40)
+        line(800,200+k+40,800+l-f+g,200+k+40)
+        if(l>=-580){l-=7;}
+        
+        if(t>768){
+          //reflected rays 
+         line(800+l-f,200+k-70,800+l+e-f,200+k-70+e*-70/138)
+        line(800+l-f,200+k+70,800+l+e-f,200+k+70+e*70/138)
+        line(800+l-f+g,200+k-40,800+l+e-f+g,200+k-40+e*-40/138)
+        line(800+l-f+g,200+k+40,800+l+e-f+g,200+k+40+e*40/138)
+        if(t>900){    
+        //imaginary rays 
+        stroke(255,0,0,50)
+        line(800+l,200+k-70,358-50+3+m-150-m2,200+k)
+        line(800+l,200+k+70,358-50+3+m-150-m2,200+k)
+        line(800+l,200+k-40,358-50+3+m-150-m2,200+k)
+        line(800+l,200+k+40,358-50+3+m-150-m2,200+k)}
+         
+         e+=7;  
+        }
+        t+=7;
+        strokeWeight(1)
+          stroke(0)
+         fill(0)
+         ellipse(358-50+3+m-390+150,200+k,10,10)
+         text("F",358-50+3+m-390+150,200+k+50)
+         //white dot
+         fill(0);
+         //ellipse(358-50+3+m,200+k,10,10)
+         //text("C",358-50+3+m,270+k) 
+         //backside of convex
+          fill(104,90,90);
+          stroke(102, 71, 71)
+         // arc(350-50+2+m,200+k,600,600,2.9,3.4)
+         
+        
+         }
+         
+     }};
+          
+
+     //var canvas = document.getElementById("mycanvas"); 
+   var canvas2 = document.getElementById("mycanvas2");
+    var canvas3=document.getElementById("mycanvas3");
+   
+   //var processingInstance = new Processing(canvas, sketchProc); 
+    var processingInstance2 = new Processing(canvas2, sketchProc2); 
+    var processingInstance3=new Processing(canvas3,sketchProc3);
+    
+ </script>
+
+</html>

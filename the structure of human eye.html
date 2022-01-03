@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>The structure of human eye</title> 
+</head>
+<style>#go{float:right;
+        padding:30px;}
+        
+        #note{background-color:yellow;}
+    </style>
+ <body>
+ <center>
+<h1>The structure of human eye</h1>
+
+<canvas id="mycanvas2"></canvas>
+
+<h2>Functions of parts of human eye</h2>
+<ol>
+<li>Cornea: The cornea is the outer covering of the eye. This dome-shaped layer protects your eye from elements that could cause damage to the inner parts of the eye. There are several layers of the cornea, creating a tough layer that provides additional protection. These layers regenerate very quickly, helping the eye to eliminate damage more easily. The cornea also allows the eye to properly focus on light more effectively. Those who are having trouble focusing their eyes properly can have their corneas surgically reshaped to eliminate this problem.</li>
+<li>Sclera: The sclera is commonly referred to as the "whites" of the eye. This is a smooth, white layer on the outside, but the inside is brown and contains grooves that help the tendons of the eye attach properly. The sclera provides structure and safety for the inner workings of the eye, but is also flexible so that the eye can move to seek out objects as necessary.</li>
+<li>Pupil:The pupil appears as a black dot in the middle of the eye. This black area is actually a hole that takes in light so the eye can focus on the objects in front of it.</li>
+<li>Iris: The iris is the area of the eye that contains the pigment which gives the eye its color. This area surrounds the pupil, and uses the dilator pupillage muscles to widen or close the pupil. This allows the eye to take in more or less light depending on how bright it is around you. If it is too bright, the iris will shrink the pupil so that they eye can focus more effectively.</li>
+
+<li>Lens: The lens sits directly behind the pupil. This is a clear layer that focuses the light the pupil takes in. It is held in place by the ciliary muscles, which allow the lens to change shape depending on the amount of light that hits it so it can be properly focused.</li>
+<li>Retina: The light focuses by the lens will be transmitted onto the retina. This is made of rods and cones arranged in layers, which will transmit light into chemicals and electrical pulses. The retina is located in the back of the eye, and is connected to the optic nerves that will transmit the images the eye sees to the brain so they can be interpreted. The back of the retina, known as the macula, will help interpret the details of the object the eye is working to interpret. The center of the macula, known as the fova will increase the detail of these images to a perceivable point.</li>
+<li>Ciliary body: Ciliary body is a ring-shaped tissue which holds and controls the movement of the eye lens, and thus, it helps to control the shape of the lens.</li>
+<li>Choroid: The choroid lies between the retina and the sclera, which provides blood supply to the eye. Just like any other portion of the body, the blood supply gives nutrition to the various parts of the eye.</li>
+<li>Vitreous humor: The vitreous humor is the gel located in the back of the eye which helps it hold its shape. This gel takes in nutrients from the ciliary body, aqueous humor and the retinal vessels so the eye can remain healthy. When debris finds its way into the vitreous humor, it causes the eye to perceive "floaters," or spots that move across the vision area that cannot be attributed to objects in the environment.</li>
+<li>Aqueous humor: The aqueous humor is a watery substance that fills the eye. It is split into two chambers. The anterior chamber is located in front of the iris, and the posterior chamber is directly behind it. These layers allow the eye to maintain its shape. This liquid is drained through the Schlemm canal so that any buildup in the eye can be removed. If the patient's aqueous humor is not draining properly, they can develop glaucoma.</li>
+</ol>
+<h3>The function of Pupil (3.)</h3>
+<canvas id="mycanvas3"></canvas>
+<p>Click the light switch to turn on or turn off the light.</p>
+<h3>Accommodation (ciliary body 7.)</h3>
+<canvas id="mycanvas4"></canvas>
+<p>Click to adjust the eye to focus on near (or far) object. The light rays that come from the object which is far away is almost parallel.</p> <br>
+<p id="note">Note: When looking at the nearer object, the lens will be thinner.</p>
+
+    </center>
+    <a href="index.html" id="go">go back to homepage</a>
+    
+
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 
+ <script>
+
+var sketchProc2=function(processingInstance){
+     with(processingInstance){size(700,400); frameRate(30)
+draw=function(){ 
+background(222)
+//part of the optic nerve (back) white
+  fill() 
+  rect(570,190,400,60)
+ 
+ //cornea (blue)
+ fill(170, 182, 207);
+ ellipse(240,200,200,200)
+ //ellipse(240,200,180,180)
+ 
+ //white eye back
+ fill()
+ arc(390,200,380,380,-5/6*PI,5/6*PI)
+ arc(390,200,360,360,-5/6*PI,5/6*PI)
+ 
+ 
+ //choroid blue
+ noStroke()
+ fill(0,0,255);
+ ellipse(390,200,360,360)
+ 
+ //ciliary muscle (red)
+  fill(255,0,0)
+ arc(400,200,350,340,-PI+0.81,PI-0.81)
+ 
+ //backside of the eye (orange)
+ fill(255, 115, 0,255);
+ ellipse(396,200,350,323,250)
+ rect(560,200,410,40)
+ 
+ //showing
+ //fill(252,252,252,100)
+ //ellipse(396,200,350,323,250)
+ //rect(560,200,410,40)
+ 
+ //fovea orange hole
+ fill(255, 115, 0,255);
+ ellipse(563,180,20,20)
+ 
+ 
+ //ciliary body blue
+noStroke()
+fill(0,0,255)
+ellipse(236,200,20,190)
+
+ //aqueous humour grey in front of lens
+ fill(232,232,232)
+ stroke(1)
+ arc(232,200,170,180,1/2*PI,1.5*PI)
+ noStroke()
+ arc(202,200,100,208,-1/3*PI,1/3*PI)
+ 
+ //irirs green
+ fill(103, 189, 28);
+ arc(228,200,30,180,1/2*PI,3/2*PI)
+ 
+ //aqueous humour grey covers a part of the iris
+ fill(232,232,232)
+ ellipse(220,200,30,69)
+ 
+ 
+ //ciliary muscle red around lens
+ fill(255,0,0)
+ ellipse(240,200,12,150)
+ 
+
+ //lens
+ noStroke()
+ fill(0, 255, 217);
+ ellipse(240,200,20,100)
+ 
+ //optic nerve red in the tube
+ fill(255,0,0)
+ rect(571,200,400,9)
+ rect(565,231,400,9)
+ 
+//Texts
+var s=0;
+
+var texts=function(){
+ textSize(11)
+ 
+ fill(0)
+ text("Ciliary Body",94,316)
+ stroke(0)
+ line(150,316,237,275)
+ 
+ text("Lens",46,217)
+line(69,217,245,206)
+
+text("pupil",25,252)
+line(46,252,213,221)
+
+text("Irirs",167,81)
+line(167,81,215,154)
+
+text("Retina",608,100)
+line(608,100,523,83)
+
+text("Optic nerve",600,300) 
+line(600,300,600,220)
+
+text("Cornea",100,100)
+line(100,100,138,200)
+
+text("Sclera",85,25)
+line(85,25,272,50)
+
+text("Choroid",63,376)
+line(100,376,289,338)
+
+text("Vitreous Humor",350,200)
+
+text("Aqueous Humor",150,200)};
+if(s===0){texts();}else{}
+}
+}};
+
+   var canvas2 = document.getElementById("mycanvas2");
+    var processingInstance2 = new Processing(canvas2, sketchProc2); 
+    
+ var sketchProc3=function(processingInstance){
+     with(processingInstance){size(700,600); frameRate(30)
+var r=70
+var LINE=0
+var Brightness=252
+var n=0;
+
+var w=10
+var co=2
+
+var dark;
+
+var an=atan((2*r)/(3*r));
+var an2=1/2*PI-an;
+
+draw=function(){ 
+
+background(222)
+stroke(0)
+var eye1=function(){
+//part of the optic nerve (back) white
+  fill() 
+  rect(570,190,400,60)
+ 
+ //cornea (blue)
+ fill(170, 182, 207);
+ ellipse(240,200,200,200)
+ //ellipse(240,200,180,180)
+ 
+ //white eye back
+ fill()
+ arc(390,200,380,380,-5/6*PI,5/6*PI)
+ arc(390,200,360,360,-5/6*PI,5/6*PI)
+ 
+ 
+ //choroid blue
+ noStroke()
+ fill(0,0,255);
+ ellipse(390,200,360,360)
+ 
+ //retina (red)
+  fill(255,0,0)
+ arc(400,200,350,340,-PI+0.81,PI-0.81)
+ 
+ //backside of the eye (orange)
+ fill(255, 115, 0,255);
+ ellipse(396,200,350,323,250)
+ rect(560,200,410,40)
+ 
+ //fovea orange hole
+ fill(255, 115, 0,255);
+ ellipse(563,180,20,20)
+ 
+ 
+ //ciliary body blue
+noStroke()
+fill(0,0,255)
+ellipse(236,200,20,190)
+
+ //aqueous humour grey in front of lens
+ fill(232,232,232)
+ stroke(1)
+ arc(232,200,170,180,1/2*PI,1.5*PI)
+ noStroke()
+ arc(202,200,100,208,-1/3*PI,1/3*PI)
+ 
+ //irirs green
+ fill(103, 189, 28);
+ arc(228,200,30,180,1/2*PI,3/2*PI)
+ 
+ //aqueous humour grey covers a part of the iris
+ fill(232,232,232)
+ ellipse(220,200,30,co*w)
+ 
+ 
+ //ciliary muscle red around lens
+ fill(255,0,0)
+ ellipse(242,200,8,150)
+ 
+
+ //lens
+ noStroke()
+ fill(0, 255, 217);
+ ellipse(242,200,12,100)
+ //ellipse(242,200,30,80) do not delete
+ 
+ //optic nerve red in the tube
+ fill(255,0,0)
+ rect(571,200,400,9)
+ rect(565,231,400,9)}
+eye1()
+
+//small pictures
+
+if(Brightness===0){LINE=252;}
+if(Brightness===252){LINE=0;}
+//background
+fill(Brightness,Brightness,Brightness)
+rect(0,300,200,200)
+stroke(LINE)
+
+//eyebrow and nose
+var en =function(){
+noFill()
+arc(100,350,200,70,-PI/2-an,-an2);
+line(200,380,170,470)
+arc(190,500,100,50,-PI,-PI/2)}
+en()
+var eye2=function(){
+//socket
+fill(252)
+ellipse(100,386,2*r,r+5)
+//iris green
+
+fill(103, 189, 28);
+ellipse(100,386,r,r)
+//pupil
+fill(0)
+stroke(0)
+ellipse(100,386,w,w);};
+eye2()
+
+//switch and its background
+fill(Brightness,Brightness,Brightness)
+//background
+stroke(Brightness,Brightness,Brightness)
+rect(0,0,100,100)
+stroke(LINE)
+//switch
+var SWITCH=function(){
+rect(20,20,50,50)
+fill(Brightness-20,Brightness-20,Brightness-20)
+rect(35,25,20,40)
+fill(Brightness,Brightness,Brightness)
+rect(35,25,20,20)}; SWITCH();
+
+//adjusting the switch
+mouseClicked=function(){
+if((20<mouseX&&mouseX<70)&&(20<mouseY&&mouseY<70)){
+
+
+if(n===0){
+Brightness-=252;}
+
+n++;
+if(n===2){
+Brightness=252;
+    n-=2;
+}
+
+
+}
+};
+
+
+if(Brightness===0){dark=true}
+if(Brightness===252){dark=false}
+if(dark===true&&w<40){w+=4.5;}
+if(dark===false&&w>10){w-=4.5;}
+
+};
+}};
+
+   var canvas3 = document.getElementById("mycanvas3");
+    var processingInstance3 = new Processing(canvas3, sketchProc3); 
+
+var sketchProc4=function(processingInstance){
+     with(processingInstance){size(700,400); frameRate(30)
+var r=70
+
+var n=0;
+
+var w=50
+var co=2
+
+//var dark=true;
+var i1=110
+var i=90
+
+
+var id=0;
+var zd=-900
+var x=0;
+
+var an=atan((2*r)/(3*r));
+var an2=1/2*PI-an;
+
+draw=function(){ 
+var z1=4000/i1
+var z=4000/i
+
+background(222)
+stroke(0)
+var eye1=function(){
+//part of the optic nerve (back) white
+  fill() 
+  rect(570,190,400,60)
+ 
+ //cornea (blue)
+ fill(170, 182, 207);
+ ellipse(240,200,200,200)
+ //ellipse(240,200,180,180)
+ 
+ //white eye back
+ fill()
+ arc(390,200,380,380,-5/6*PI,5/6*PI)
+ arc(390,200,360,360,-5/6*PI,5/6*PI)
+ 
+ 
+ //choroid blue
+ noStroke()
+ fill(0,0,255);
+ ellipse(390,200,360,360)
+ 
+ //retina (red)
+  fill(255,0,0)
+ arc(400,200,350,340,-PI+0.81,PI-0.81)
+ 
+ //backside of the eye (orange)
+ fill(255, 115, 0,255);
+ ellipse(396,200,350,323,250)
+ rect(560,200,410,40)
+ 
+ //fovea orange hole
+ fill(255, 115, 0,255);
+ ellipse(563,180,20,20)
+ 
+ 
+ //ciliary body blue
+noStroke()
+fill(0,0,255)
+ellipse(236,200,20,190)
+
+ //aqueous humour grey in front of lens
+ fill(232,232,232)
+ stroke(1)
+ arc(232,200,170,180,1/2*PI,1.5*PI)
+ noStroke()
+ arc(202,200,100,208,-1/3*PI,1/3*PI)
+ 
+ //irirs green
+ fill(103, 189, 28);
+ arc(228,200,30,180,1/2*PI,3/2*PI)
+ 
+ //aqueous humour grey covers a part of the iris
+ fill(232,232,232)
+ ellipse(220,200,30,co*w)
+ 
+ 
+ //ciliary muscle red around lens
+ fill(255,0,0)
+ ellipse(242,200,14,150)
+ 
+
+ //lens
+ noStroke()
+ fill(0, 255, 217);
+ ellipse(242,200,z1,i1)
+ //ellipse(242,200,30,80) do not delete
+ 
+ //optic nerve red in the tube
+ fill(255,0,0)
+ rect(571,200,400,9)
+ rect(565,231,400,9)}
+eye1()
+
+
+//far
+//straight rays
+     strokeWeight(3)
+     stroke(251, 255, 40);
+     
+     fill()
+     line(0-id,150,235-id,150)
+     line(0-id,250,235-id,250)
+     
+     //bent rays
+     line(235-id,150,570-id,200)
+     line(235-id,250,570-id,200)
+     
+//near
+//straight rays
+     strokeWeight(3)
+     stroke(251, 255, 40);
+     fill()
+     line(0-zd,200,235-zd,160)
+     line(0-zd,200,235-zd,240)
+     //bent rays
+     line(235-zd,160,570-zd,200)
+     line(235-zd,240,570-zd,200)
+
+mouseClicked=function(){
+
+if(x===0&&i1===110){id+=900; zd+=900;}
+x++;
+if(x===2&&i1===i){x-=2; id-=900; zd-=900;} 
+   
+};
+if(id===0&&i1<110){i1++;}
+if(zd===0&&i1>i){i1--;}
+
+
+};
+}};
+
+   var canvas4 = document.getElementById("mycanvas4");
+    var processingInstance4 = new Processing(canvas4, sketchProc4); 
+ </script>
+
+</html>

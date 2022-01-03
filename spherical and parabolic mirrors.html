@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Spherical and parabolic mirrors</title> 
+</head>
+<style>#go{float:right;
+        padding:30px;
+    }</style>
+ <body>
+ <center>
+ <h1>Spherical and parabolic mirrors</h1>
+
+<p>We've learnt about the concave and convex mirrors. Now, let's study spherical and parabolic mirrors.</p>
+<br><br><br>
+<h3>Parabolic mirror</h3>
+<p>First, look at this parabolic mirror.</p>
+<canvas id="mycanvas"></canvas>
+<p>The reason why this is called a parabolic mirror is because its in a shape of a parabola. But to build this parabolic shape is hard, that's why we have another type of mirror -- spherical mirror.</p>
+<br><br><br>
+<h3>Spherical mirror</h3>
+<canvas id="mycanvas2"></canvas>
+<p>A spherical mirror is built from a small part of a sphere as you can see, but if we take a large part of a sphere, we would not be able to make a spherical mirror which could focusing light. It's much cheaper and easier to be built than a parabolic mirror, but its ability of focusing light is weaker than a parabolic mirror.</p>
+<br><br>
+<p>And there's one important thing to remember, there are both concave, convex parabolic mirrors, and concave, convex spherical mirrors.</p>
+    </center>
+    <a href="index.html" id="go">go back to homepage</a>
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+var sketchProc=function(processingInstance){with(processingInstance){size(400,400);
+frameRate(30);
+
+//parabolic mirror
+noFill();
+beginShape();
+curveVertex(450,-50);
+curveVertex(200,  80);
+curveVertex(90,200);
+curveVertex(200, 320);
+
+
+curveVertex(450,450);
+
+endShape();
+    
+    fill(0)
+    ellipse(220,200,5,5)
+    text("F",250,200)
+    
+    
+}
+ };
+var sketchProc2=function(processingInstance){
+     with(processingInstance){size(800,800); frameRate(30);
+     
+     var m=11;
+     var mx=400;
+     var k=171;
+        background(232);
+        //backside of concave 
+          fill(104,90,90)
+          stroke(102, 71, 71)
+          arc(350-50+2+m,200+k,600,600,2.9,3.4)
+    //concave
+    
+          strokeWeight(9)
+          fill(232)
+          stroke(0,0,255)
+          arc(358-50+3+m,200+k,600,600,2.9,3.4)
+          //sphere
+          strokeWeight(1);
+          stroke(0,0,255,50)
+          ellipse(358-50+3+m,200+k,600,600)
+          
+          //black line
+          strokeWeight(1)
+          stroke(0)
+          //line(13,200+k,900,200+k)
+          //green dot
+          //fill(111, 255, 0);
+          //ellipse(358-50+3+m-300,200+k,10,10)
+          //text("P",358-50+3+m-300,270+k)
+          //black dot
+         fill(0)
+         ellipse(358-50+3+m-150,200+k,10,10)
+         text("F",358-50+3+m-150,270+k)
+         //white dot
+         fill(0);
+         ellipse(358-50+3+m,200+k,10,10)
+         text("C",358-50+3+m,270+k) 
+         
+         stroke()
+         
+     }};
+
+     var canvas = document.getElementById("mycanvas"); 
+    var canvas2 = document.getElementById("mycanvas2");
+    //var canvas3=document.getElementById("mycanvas3");
+   
+   var processingInstance = new Processing(canvas, sketchProc); 
+    var processingInstance2 = new Processing(canvas2, sketchProc2); 
+    //var processingInstance3=new Processing(canvas3,sketchPro3);
+    
+ </script>
+
+</html>

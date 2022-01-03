@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Dispersion</title> 
+</head>
+<style>
+strong {
+font-size:10px;
+    
+    
+}
+#head{background-color:White;}
+#red{background-color:red;}
+#orange{background-color:orange;}
+#yellow{background-color:yellow;}
+#green{background-color:rgb(0,255,0);}
+#blue{background-color:blue;}
+#indigo{background-color: rgb(106, 0, 255)}
+#violet{background-color: rgb(211,56,211);}
+
+#legend{font-size:10px;}
+    #go{float:right;
+        padding:30px;
+    }
+    #table{background-color:grey;}
+</style>
+ <body>
+ <center>
+ <h1>Dispersion</h1>
+<br>
+<h3></h3>
+<p></p>
+<canvas id="mycanvas2"></canvas>
+<p></p>
+<br>
+<p>Look at the rainbow, it's a phenomena of the dispersion of light, because white light is consisted of light rays with other colors.</p>
+<br><br>
+<canvas id="mycanvas3"></canvas>
+<p>The great physicist, Issac Newton made this amazing discoveries with his famous "prism experiment".</p><br>
+
+<p>Why the light rays of different colors disperse? What can analyze this from the snell's law.</p>
+<b>sin θ<strong>2</strong>/sin θ<strong>1</strong> = v<strong>2</strong>/v<strong>1</strong> = n<strong>1</strong>/n<strong>2</strong></b>
+<p>Different colors of light rays have different wavelengths, which gives them different refractive indexes. Eventually, light rays of different colors will be bent differently when they entering a medium. But the differences of their refractive indexes are actually very small.</p>
+<p>The table below shows the refractive indexes of different colors of light of water.</p>
+<br>
+<table id="table">
+    <thead id="head">
+     <tr>
+      <td>Color</td> 
+      <td>Wavelength (nm)</td>
+      <td>Refractive index</td>
+     </tr>   
+    </thead>
+    <tbody>
+    <tr>
+        <td id="red">Red</td>
+        <td>700</td>
+        <td>1.33141</td>
+    </tr>
+    <tr>
+        <td id="orange">Orange</td>
+        <td>600</td>
+        <td>1.33393</td>
+    </tr>
+    <tr><td id="yellow">Yellow</td><td>575</td><td>1.33472</td></tr>
+    <tr><td id="green">Green</td><td>525</td><td>1.33659</td></tr>
+    <tr><td id="blue">Blue</td><td>475</td><td>1.34055</td></tr> 
+    <tr><td id="indigo">Indigo</td><td>425</td><td>1.34235</td></tr>
+    <tr><td id="violet">Violet</td><td>400</td><td>1.34451</td></tr>
+    <tr><td></td><td></td><td></td></tr>
+    </tbody>
+</table>
+<p id="legend">The shorter the wavelength, the larger the refractive index</p>
+<br><br>
+<br>
+<p>If the white light is a combination of different colors of light rays, why in most conditions, we only see the white? We can analyze it using our knowledge of the human eye.</p>
+<canvas id="mycanvas4"></canvas>
+<p>When light rays of different colors are parallel to each other, they will be assembled by lens to a single white dot on our retina, and we can only see distinguish the light rays of different colors when they are not parallel to each other.
+</p>
+<br><br><br>
+
+<p></p>
+
+<br>
+   
+
+    </center>
+    
+   <a href="index.html" id="go">go back to homepage</a> 
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script>
+
+var sketchProc2 = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+       background(190, 255, 255);
+        var Rainbow= function(radius,x,y){
+    this.radius=radius;
+    this.x=x;
+    this.y=y;
+};
+
+var goodRainbow=new Rainbow(200,100,100);
+
+var bestRainbow=new Rainbow(400,200,200);
+
+
+var drawRainbow = function(rainbow) {
+    
+    noFill();
+    strokeWeight(5);
+    stroke(255, 0, 0);
+    arc(rainbow.x, rainbow.y, rainbow.radius, rainbow.radius, 180, 360);
+    stroke(250, 200, 0);
+    arc(rainbow.x, rainbow.y, rainbow.radius-10, rainbow.radius-10, 180, 360);
+    stroke(240, 255, 102);
+    arc(rainbow.x, rainbow.y, rainbow.radius-20, rainbow.radius-20, 180, 360);
+    stroke(29, 255, 13);
+    arc(rainbow.x, rainbow.y, rainbow.radius-30, rainbow.radius-30, 180, 360);
+    stroke(122, 155, 255);
+    arc(rainbow.x, rainbow.y, rainbow.radius-40, rainbow.radius-40, 180, 360);
+};
+
+
+drawRainbow(goodRainbow);
+noStroke()
+var clouds=function(){  
+    noStroke();
+    var k=100;
+    var k2=30
+    fill(255,255,255);
+
+
+ellipse(50+100+150,260-100-20-k,100,20);
+ellipse(30+100+150,250-100-20-k,30,30);
+ellipse(50+100+150,240-100-20-k,40,40);
+
+fill(252,252,252)
+ellipse(50+100+150,260-100-20-4,100,20);
+ellipse(30+100+150,250-100-20+k2-10,30,30);
+ellipse(50+100+150,240-100-20+k2,40,40);
+};
+clouds()
+//water
+ fill(0,0,255,25)
+rect(0,100,400,400) 
+//island
+fill(100,205,70)
+ellipse(400,400,500,500)
+
+//tree
+fill(139,69,19)
+rect(320,200,20,100)
+fill(0,255,0)
+ellipse(330,200,70,80)
+//tree2
+fill(139,69,19)
+rect(220,250,20,100)
+fill(0,255,0)
+ellipse(230,250,70,80)
+
+
+//wood
+fill(139,69,19)
+rect(300,350,80,20)
+ellipse(300,360,20,20)
+ellipse(380,360,20,20)
+fill(235, 194, 127)
+ellipse(300,360,18,18)
+//ellipse(380,360,18,18)
+
+    }};
+
+ var sketchProc3=function(processingInstance){
+     
+    
+    with(processingInstance){size(400,400); frameRate(30);
+    
+    
+  var t=0;
+draw= function() {
+background(0);
+
+//prism
+stroke(0, 255, 230);
+fill(0);
+triangle(200,50,50,250,350,250);
+if(t>100){
+//white light ray
+stroke(255, 255, 255);
+strokeWeight(4);
+line(0,220,123,150);}
+
+if(t>120){
+//red
+stroke(255, 0, 0);
+line(124,150,246,115);
+//blue
+stroke(255,255,0);
+line(124,150,256,125);
+//yellow
+stroke(0,0,255);
+line(124,150,260,135);
+}
+
+if(t>130){
+//red
+stroke(255, 0, 0);
+line(124,150,246,115);
+line(245,115,400,120);
+
+//yellow
+stroke(255,255,0);
+line(124,150,256,125);
+
+line(256,125,400,135);
+
+//blue
+stroke(0,0,255);
+line(124,150,260,135);
+
+line(260,135,400,150);}
+if(t>250){t=0;}
+else{t++;}
+
+};
+    
+    
+    
+    }};
+ var sketchProc4 = function(processingInstance) {
+    with (processingInstance) {size(450,400); frameRate(30);
+    
+   var x=10;
+var t=0;
+draw= function() {
+t++;
+background(0);
+
+//eye ball
+noFill();
+stroke(255, 136, 0);
+ellipse(270,200,256,250);
+//lens
+noStroke();
+fill(0, 242, 255);
+ellipse(150,200,20,100);
+if(t>80){
+//red upper
+stroke(255, 0, 0);
+line(0,155,150,155);
+//yellow upper
+stroke(255,255,0);
+line(0,175-x,150,175-x);
+//blue upper
+stroke(0, 13, 255);
+line(0,175,150,175);
+
+
+//red lower
+stroke(255, 0, 0);
+line(0,245,150,245);
+//yellow lower
+stroke(255,255,0);
+line(0,225+x,150,225+x);
+//blue lower
+stroke(0, 13, 255);
+line(0,225,150,225);
+}
+////////////////
+if(t>100){
+//red upper
+stroke(255, 0, 0);
+line(150,155,400,200);
+//yellow upper
+stroke(255,255,0);
+line(150,175-x,400,200);
+//blue upper
+stroke(0, 13, 255);
+line(150,175,400,200);
+//red lower
+stroke(255, 0, 0);
+line(150,245,400,200);
+//yellow lower
+stroke(255,255,0);
+line(150,225+x,400,200);
+//blue lower
+stroke(0, 13, 255);
+line(150,225,400,200);}
+///////////
+if(t>120){
+//white dot
+noStroke();
+fill(255, 255, 255,50);
+ellipse(398,200,20,20);
+
+fill(255, 255, 255);
+ellipse(398,200,10,10);}
+if(t>250){t=0;}
+
+};
+
+    }};
+ 
+    var canvas2 = document.getElementById("mycanvas2");
+    var canvas3=document.getElementById("mycanvas3");
+   var canvas4=document.getElementById("mycanvas4");
+  var canvas5=document.getElementById("mycanvas5");
+    var processingInstance2 = new Processing(canvas2, sketchProc2); 
+    var processingInstance3=new Processing(canvas3,sketchProc3);
+     var processingInstance4=new Processing(canvas4,sketchProc4);
+      var processingInstance5=new Processing(canvas5,sketchProc5);
+     
+ </script>
+
+</html>

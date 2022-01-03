@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ray diagram, lens formula and magnification formula</title>
+    </head>
+    <style>
+        strong {font-size:10px}
+        #th{background-color:rgb(232,232,232);}
+        #go{float:right;
+        padding:30px;
+    }
+    </style>
+    <body>
+<center>
+
+<h1>Ray diagram, lens formula and magnification formula</h1> 
+<br><br>
+<h2>Ray diagram</h2>
+ <p>Look at the ray diagram below, move the mouse to move the object (red), see what happens to its image (transparent).</p>
+  <canvas id="canvas0"></canvas>
+<p>you can see there's a relationship between the object's its image's distances to the lens.</p>
+<br>
+<h2>Lens formula</h2>
+<p>For the relationship between te object's and image's distance to the lens, we have the <b>lens formula</b>:</p>
+<b>1/f=1/v-1/u</b>
+<p>If you don't understand the technical terms in the formula, see <a href="ray diagram, mirror formula and magnification formula.html">Ray diagram, mirror formula and magnification formula</a></p>
+<br>
+<h2>Magnification formula</h2>
+<p>And for the relationship between object's height and its image's height, we have the <b>magnification formula for lenses</b>:</p>
+<p>
+<b>M=h<strong>i</strong>/h<strong>o</strong>=v/u</b></p>
+
+
+
+ <canvas id="canvas1"></canvas>
+ 
+
+
+</center>
+<a href="index.html" id="go">go back to homepage</a>
+    </body>
+    <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+    <script>
+var sketchProc0=function(processingInstance){
+     with(processingInstance){size(600,400); frameRate(30);
+     var a=50
+     draw=function(){
+    var x=100 ;
+    
+    if(mouseX<300&&mouseY>150&&mouseY<200){x=mouseX;}else{x=100;}
+    
+    
+    var u=300-x
+    var f=100
+    var v=1/(1/f-1/u)
+    var vc=v+300
+    var M=v/u
+    var ho=40
+    var hi=ho*v/u
+   
+         
+     background(232,232,2323);
+   /*  if(93<mouseX&&mouseX<123&&66<mouseY&&mouseY<96){
+     fill(255,0,0,80)
+     rect(0,0,300,400)}
+     
+     if(499<mouseX&&mouseX<529&&66<mouseY&&mouseY<96){
+     fill(0,0,255,80)
+     rect(300,0,300,400)}
+     
+     if(86<mouseX&&mouseX<126&&102<mouseY&&mouseY<142){
+     fill(251, 255, 40,80);
+     rect(0,0,600,200)}
+     
+     if(86<mouseX&&mouseX<126&&245<mouseY&&mouseY<285){
+     fill(25, 255, 40,80)
+     rect(0,200,600,200)}
+     //-,+
+     fill()
+     stroke()
+     rect(93,66,30,30)
+     rect(499,66,30,30)
+     
+     ellipse(106,122,20,20)
+     ellipse(106,265,20,20)
+     fill(0)
+     textSize(50)
+     text("-",100,100)
+     text("+",500,100)
+     
+     
+     textSize(20)
+     text("+",100,130)
+     text("-",100,270)
+     textSize(11)*/
+     
+     
+     
+     //convex
+     stroke(0)
+      fill(10,100,200)
+      fill(0,0,255)
+     ellipse(300,200,20,180)
+     line(0,200,600,200)
+     
+     stroke(255,0,0)
+     for(var i=0;i<22;i++){
+         ellipse(300,i*20,1,10)
+     }
+     
+     stroke(0)
+     fill(255)
+     ellipse(300,200,8,8)
+     text("O",295,220)
+     
+     fill(10,100,200)
+     fill(0)
+     ellipse(200,200,8,8)
+     text("F",200,220)
+     ellipse(400,200,8,8)
+     text("F",400,220)
+     
+     //object
+     fill(255,0,0)
+     line(x,200,x,200-ho);
+     ellipse(x,200-ho,8,8)
+     
+     //image
+     strokeWeight(abs(M))
+     fill(255,0,0,10)
+     line(vc,200,vc,200+hi)
+     ellipse(vc,200+hi,8*abs(M),8*abs(M))
+     
+     strokeWeight(1)
+     //green light ray
+     stroke(25, 255, 40);
+     line(x,160,300,160)
+     
+     line(300,160,400+400,200+2/5*400)
+     // red light ray
+     stroke(255,0,0)
+     line(x,160,300+500,200+500*40/(300-x))
+     
+     fill()
+     stroke()
+     rect(0,400,600,100);
+     textSize(20)
+     fill(0)
+     text("u: "+u,100-90,420)
+     text("v: "+v,100-90,420+20)
+     text("f: "+f,100-90,420+50)
+     
+     text("ho: "+ho,100+220,420)
+     text("hi: "+hi,100+220,420+20)
+     text("M: "+M,100+220,420+50)
+     };
+     }};
+ var sketchProc1=function(processingInstance){
+     with(processingInstance){size(600,500); frameRate(30);
+     var a=50
+     draw=function(){
+    var x=100 ;
+    
+    if(mouseX<300&&mouseY>150&&mouseY<200){x=mouseX;}else{x=100;}
+    
+    
+    var u=300-x
+    var f=100
+    var v=1/(1/f-1/u)
+    var vc=v+300
+    var M=v/u
+    var ho=40
+    var hi=ho*v/u
+   
+         
+     background(232,232,2323);
+     if(93<mouseX&&mouseX<123&&66<mouseY&&mouseY<96){
+     fill(255,0,0,80)
+     rect(0,0,300,400)}
+     
+     if(499<mouseX&&mouseX<529&&66<mouseY&&mouseY<96){
+     fill(0,0,255,80)
+     rect(300,0,300,400)}
+     
+     if(86<mouseX&&mouseX<126&&102<mouseY&&mouseY<142){
+     fill(251, 255, 40,80);
+     rect(0,0,600,200)}
+     
+     if(86<mouseX&&mouseX<126&&245<mouseY&&mouseY<285){
+     fill(25, 255, 40,80)
+     rect(0,200,600,200)}
+     //-,+
+     fill()
+     stroke()
+     rect(93,66,30,30)
+     rect(499,66,30,30)
+     
+     ellipse(106,122,20,20)
+     ellipse(106,265,20,20)
+     fill(0)
+     textSize(50)
+     text("-",100,100)
+     text("+",500,100)
+     
+     
+     textSize(20)
+     text("+",100,130)
+     text("-",100,270)
+     textSize(11)
+     
+     
+     
+     //convex
+     stroke(0)
+      fill(10,100,200)
+      fill(0,0,255)
+     ellipse(300,200,20,180)
+     line(0,200,600,200)
+     
+     stroke(255,0,0)
+     for(var i=0;i<22;i++){
+         ellipse(300,i*20,1,10)
+     }
+     
+     stroke(0)
+     fill(255)
+     ellipse(300,200,8,8)
+     text("O",295,220)
+     
+     fill(10,100,200)
+     fill(0)
+     ellipse(200,200,8,8)
+     text("F",200,220)
+     ellipse(400,200,8,8)
+     text("F",400,220)
+     
+     //object
+     fill(255,0,0)
+     line(x,200,x,200-ho);
+     ellipse(x,200-ho,8,8)
+     
+     //image
+     strokeWeight(abs(M))
+     fill(255,0,0,10)
+     line(vc,200,vc,200+hi)
+     ellipse(vc,200+hi,8*abs(M),8*abs(M))
+     
+     strokeWeight(1)
+     //green light ray
+     stroke(25, 255, 40);
+     line(x,160,300,160)
+     
+     line(300,160,400+400,200+2/5*400)
+     // red light ray
+     stroke(255,0,0)
+     line(x,160,300+500,200+500*40/(300-x))
+     
+     fill()
+     stroke()
+     rect(0,400,600,100);
+     textSize(20)
+     fill(0)
+     text("u: "+u,100-90,420)
+     text("v: "+v,100-90,420+20)
+     text("f: "+f,100-90,420+50)
+     
+     text("ho: "+ho,100+220,420)
+     text("hi: "+hi,100+220,420+20)
+     text("M: "+M,100+220,420+50)
+     };
+     }};
+ 
+     
+var processingInstance0 = new Processing(canvas0, sketchProc0);
+         var canvas=document.getElementById("canvas0")
+     
+var processingInstance1 = new Processing(canvas1, sketchProc1);
+         var canvas=document.getElementById("canvas1")
+         
+//var processingInstance2 = new Processing(canvas2, sketchProc2);
+         //var canvas=document.getElementById("canvas2")
+     </script>
+</html>

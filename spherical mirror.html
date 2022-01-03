@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Spherical mirror</title> 
+</head>
+<style>#go{float:right;
+        padding:30px;
+    }</style>
+ <body>
+ <center>
+ <h1>Spherical mirror</h1>
+<br>
+<p>After an overview of spherical and parabolic mirrors, let's study some technic terms about the spherical mirror.</p>
+
+<canvas id="mycanvas"></canvas>
+<p>1.P, pole, which is the center of the mirror<br>2.F, focus<br>3.f, focal length, which is the distance between P and F, f=R/2<br>4.R, radius of curvature, which is the radius of the (imaginary)sphere<br>5.C, center of curvature, which is the center of the sphere<br>6.Principle axis, all the light rays that could gather at the focus after reflection are all parallel to it<br>7.Aperture, which is the diameter of the mirror</p>
+    </center>
+    <a href="index.html" id="go">go back to homepage</a>
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+var sketchProc=function(processingInstance){
+     with(processingInstance){size(650,700); frameRate(30);
+     
+     var t=0;
+     var l=0;
+     var m=11;
+     var mx=400;
+     var k=171;
+     draw=function(){
+        background(232);
+        
+       
+        //backside of concave 
+          fill(104,90,90)
+          stroke(102, 71, 71)
+          arc(350-50+2+m,200+k,600,600,2.9,3.4)
+    //concave
+    
+          strokeWeight(9)
+          fill(232)
+          stroke(0,0,255)
+          arc(358-50+3+m,200+k,600,600,2.9,3.4)
+          //sphere
+          strokeWeight(1);
+          stroke(0,0,255,20)
+          ellipse(358-50+3+m,200+k,600,600)
+          
+          //light rays
+           strokeWeight(5)
+        stroke(251, 255, 40,50);
+        line(800,200+k-70,800+l,200+k-70)
+        line(800,200+k+70,800+l,200+k+70)
+        line(800,200+k-40,800+l,200+k-40)
+        line(800,200+k+40,800+l,200+k+40)
+        if(l>=-768){l-=7;}
+        if(t>768){
+        line(800+l,200+k-70,358-50+3+m-150,200+k)
+        line(800+l,200+k+70,358-50+3+m-150,200+k)
+        line(800+l,200+k+40,358-50+3+m-150,200+k)
+        line(800+l,200+k+40,358-50+3+m-150,200+k)}
+        t+=7;
+        if(t>880){
+           //R line
+           stroke()
+        line(358-50+3+m,200+k,138,138)
+        fill(255)
+        text("R",200,200)
+          //black line
+          strokeWeight(1)
+          stroke(0)
+          line(13,200+k,900,200+k)
+          fill(0)
+          text("Principle axis",500,200+k+20)
+          //P dot
+          strokeWeight(1)
+          stroke(0)
+          fill(111, 255, 0);
+          ellipse(358-50+3+m-300,200+k,10,10)
+          text("P",358-50+3+m-300,270+k)
+          //F dot
+         fill(0)
+         ellipse(358-50+3+m-150,200+k,10,10)
+         text("F",358-50+3+m-150,270+k)
+         //C dot
+         fill(0);
+         ellipse(358-50+3+m,200+k,10,10)
+         text("C",358-50+3+m,270+k) 
+         //f text
+         stroke(255,0,0)
+         fill(255,0,0)
+         text("f",100+m,240+k)
+         line(358-50+3+m-300,200+k,358-50+3+m-150,200+k)
+         
+         //aperture
+         stroke(0)
+         fill(0)
+         triangle(358-50+3+m-300+13,200+k-82,
+         358-50+3+m-300+13-6,200+k-82+10,
+         358-50+3+m-300+13+6,200+k-82+10)
+         
+         triangle(358-50+3+m-300+13,200+k+76,
+         358-50+3+m-300+13-6,200+k+76-10,
+         358-50+3+m-300+13+6,200+k+76-10)
+         line(358-50+3+m-300+13,200+k-82,358-50+3+m-300+13,200+k+76)
+         text("Aperture",358-50+3+m-300+20,200+k-20)
+         }
+     };
+     }};
+
+     var canvas = document.getElementById("mycanvas"); 
+    //var canvas2 = document.getElementById("mycanvas2");
+    //var canvas3=document.getElementById("mycanvas3");
+   
+   var processingInstance = new Processing(canvas, sketchProc); 
+    //var processingInstance2 = new Processing(canvas2, sketchProc2); 
+    //var processingInstance3=new Processing(canvas3,sketchPro3);
+    
+ </script>
+
+</html>
